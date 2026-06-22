@@ -11,12 +11,14 @@ class KaryawanMagang extends Karyawan {
         $this->sertifikatKampusMerdeka = $sertifikat;
     }
 
+// Overriding: Potongan 20% dari total gaji harian
     public function hitungGajiBersih() {
-        return $this->uangSakuBulanan;
+        $totalGajiKotor = $this->hariKerjaMasuk * $this->gajiDasarPerHari;
+        return $totalGajiKotor * 0.80; 
     }
 
     public function tampilkanProfesiKaryawan() {
-        return "Magang (Sertifikat: " . $this->sertifikatKampusMerdeka . ")";
+        return "Karyawan Magang";
     }
 
     public static function getDataById($conn, $id) {

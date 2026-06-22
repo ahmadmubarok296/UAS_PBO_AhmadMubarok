@@ -11,12 +11,13 @@ class KaryawanKontrak extends Karyawan {
         $this->agensiPenyalur = $agensi;
     }
 
+// Overriding: Penggajian murni berdasarkan jumlah hari kehadiran
     public function hitungGajiBersih() {
-        return $this->gajiDasarPerHari * 22; // Asumsi 22 hari kerja
+        return $this->hariKerjaMasuk * $this->gajiDasarPerHari;
     }
 
     public function tampilkanProfesiKaryawan() {
-        return "Karyawan Kontrak dari " . $this->agensiPenyalur;
+        return "Karyawan Kontrak";
     }
 
     public static function getDataById($conn, $id) {

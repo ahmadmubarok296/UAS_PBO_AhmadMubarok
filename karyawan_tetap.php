@@ -11,12 +11,13 @@ class KaryawanTetap extends Karyawan {
         $this->opsiSahamId = $opsiSaham;
     }
 
+// Overriding: Gaji pokok + tunjangan
     public function hitungGajiBersih() {
-        return ($this->gajiDasarPerHari * 22) + $this->tunjanganKesehatan;
+        return ($this->hariKerjaMasuk * $this->gajiDasarPerHari) + $this->tunjanganKesehatan;
     }
 
     public function tampilkanProfesiKaryawan() {
-        return "Karyawan Tetap dengan ID Saham: " . $this->opsiSahamId;
+        return "Karyawan Tetap";
     }
 
     public static function getDataById($conn, $id) {
